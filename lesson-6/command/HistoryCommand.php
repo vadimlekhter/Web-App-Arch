@@ -13,21 +13,26 @@ protected $operation;
      * @param $historyItem
      * @param $operation
      */
-    public function __construct($history, $historyItem)
+    public function __construct($history, $historyItem, $operation)
     {
         $this->history = $history;
         $this->historyItem = $historyItem;
+        $this->operation = $operation;
     }
 
 
     public function execute()
     {
-        $this->history->changeHistory($this->historyItem, 'add');
+        $this->history->changeHistory($this->historyItem, $this->operation);
     }
 
     public function unexecute()
     {
-        $this->history->changeHistory($this->historyItem, 'remove');
+        $this->history->changeHistory($this->historyItem, $this->undo());
+    }
+
+    protected function undo () {
+        return 'remove';
     }
 
 }
