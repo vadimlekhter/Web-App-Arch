@@ -60,9 +60,17 @@ class ConcreteObservable implements IObservable
     /**
      * @param IObserver $obj
      */
-    public function addObserver($obj)
+    public function addObserver(IObserver $obj)
     {
         $this->observers [] = $obj;
+    }
+
+    /**
+     * @param IObserver $obj
+     */
+    public function removeObserver(IObserver $obj)
+    {
+        unset($this->observers[array_search($obj,$this->observers)]);
     }
 
 
