@@ -8,5 +8,5 @@ $client = new Client();
 $client->makeOperation('Item 1');
 $client->makeOperation('Item 2');
 $client->makeOperation('Item 3');
-$client->undo(12);
+$client->undo(3);
 $client->redo(1);

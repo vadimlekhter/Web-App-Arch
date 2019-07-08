@@ -1,11 +1,26 @@
 <?php
 
 
+/**
+ * Class Client
+ */
 class Client
 {
+    /**
+     * @var array
+     */
     protected $operationsStorage = [];
+    /**
+     * @var int
+     */
     protected $currentOperation;
+    /**
+     * @var string
+     */
     protected $historyItem;
+    /**
+     * @var History
+     */
     protected $history;
 
     /**
@@ -17,7 +32,10 @@ class Client
     }
 
 
-    public function makeOperation($historyItem)
+    /**
+     * @param string $historyItem
+     */
+    public function makeOperation(string $historyItem): void
     {
         $command = new HistoryCommand($this->history, $historyItem, 'add');
         $command->execute();
@@ -25,7 +43,10 @@ class Client
         $this->currentOperation++;
     }
 
-    public function undo($level)
+    /**
+     * @param int $level
+     */
+    public function undo(int $level): void
     {
         for ($i = 1; $i <= $level; $i++) {
             if ($this->currentOperation > 0) {
@@ -34,7 +55,10 @@ class Client
         }
     }
 
-    public function redo($level)
+    /**
+     * @param int $level
+     */
+    public function redo(int $level): void
     {
         for ($i = 1; $i <= $level; $i++) {
             if ($this->currentOperation < count($this->operationsStorage)) {

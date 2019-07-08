@@ -3,6 +3,13 @@
 
 interface ICommand
 {
-public function  execute ();
-public function  unexecute ();
+    /**
+     * @return mixed
+     */
+    public function execute();
+
+    /**
+     * @return mixed
+     */
+    public function unexecute();
 }

@@ -3,9 +3,16 @@
 
 class History
 {
+    /**
+     * @var array
+     */
     protected $historyStorage = [];
 
-    public function changeHistory($historyItem, $operation)
+    /**
+     * @param string $historyItem
+     * @param string $operation
+     */
+    public function changeHistory(string $historyItem, string $operation): void
     {
         switch ($operation) {
             case 'add':

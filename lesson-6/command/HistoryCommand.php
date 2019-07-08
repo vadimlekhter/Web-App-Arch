@@ -3,15 +3,24 @@
 
 class HistoryCommand implements ICommand
 {
-protected $history;
-protected $historyItem;
-protected $operation;
+    /**
+     * @var History
+     */
+    protected $history;
+    /**
+     * @var string
+     */
+    protected $historyItem;
+    /**
+     * @var string
+     */
+    protected $operation;
 
     /**
      * HistoryCommand constructor.
      * @param History $history
-     * @param $historyItem
-     * @param $operation
+     * @param string $historyItem
+     * @param string $operation
      */
     public function __construct($history, $historyItem, $operation)
     {
@@ -21,17 +30,27 @@ protected $operation;
     }
 
 
-    public function execute()
+    /**
+     * @return void
+     */
+    public function execute(): void
     {
         $this->history->changeHistory($this->historyItem, $this->operation);
     }
 
-    public function unexecute()
+    /**
+     * @return void
+     */
+    public function unexecute(): void
     {
         $this->history->changeHistory($this->historyItem, $this->undo());
     }
 
-    protected function undo () {
+    /**
+     * @return string
+     */
+    protected function undo(): string
+    {
         return 'remove';
     }
 
