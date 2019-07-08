@@ -7,7 +7,7 @@ abstract class AbstractLunch
     /**
      * AbstractLunch constructor.
      */
-    public function __construct($dayOfWeek)
+    final public function __construct($dayOfWeek)
     {
         print_r('Меню на ' . $this->russianDayOfWeek($dayOfWeek) . PHP_EOL);
         $this->salad();
