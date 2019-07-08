@@ -3,5 +3,9 @@
 
 interface IObserver
 {
-    public function handleEvent($data);
+    /**
+     * @param IObservable $obj
+     * @return mixed
+     */
+    public function handleEvent($obj);
 }

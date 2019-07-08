@@ -14,11 +14,11 @@ class ConcreteObserver implements IObserver
     }
 
     /**
-     * @param $data
+     * @param IObservable $obj
      */
-    public function handleEvent($data)
+    public function handleEvent($obj)
     {
-        print_r('Новые данные ' . $data . PHP_EOL);
+       print_r($obj->data . PHP_EOL);
     }
 
 }

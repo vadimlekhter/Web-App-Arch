@@ -12,9 +12,9 @@ class ConcreteObservable implements IObservable
      */
     private static $instance = null;
     /**
-     * @var
+     * @var mixed
      */
-    private $data;
+    public $data;
 
     private function __construct()
     {
@@ -49,15 +49,6 @@ class ConcreteObservable implements IObservable
     }
 
     /**
-     * @return mixed
-     */
-    public function getData()
-    {
-        return $this->data;
-    }
-
-
-    /**
      * @param IObserver $obj
      */
     public function addObserver(IObserver $obj)
@@ -70,14 +61,14 @@ class ConcreteObservable implements IObservable
      */
     public function removeObserver(IObserver $obj)
     {
-        unset($this->observers[array_search($obj,$this->observers)]);
+        unset($this->observers[array_search($obj, $this->observers)]);
     }
 
 
     public function notifyObservers()
     {
         foreach ($this->observers as $observer) {
-            $observer->handleEvent($this->getData());
+            $observer->handleEvent($this);
         }
     }
 

@@ -13,5 +13,5 @@ ConcreteObservable::getInstance()->setData('Тест');
 
 ConcreteObservable::getInstance()->removeObserver($observer3);
 
-ConcreteObservable::getInstance()->setData(5);
-ConcreteObservable::getInstance()->setData('Тест');
+ConcreteObservable::getInstance()->setData(25);
+ConcreteObservable::getInstance()->setData('Тестировка');
